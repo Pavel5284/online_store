@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "image": "",
+    "title": "IPhone",
+    "description": "12Mp, 128Gb",
+    "price": "1000"
+  },
+  {
+    "id": 2,
+    "image": "",
+    "title": "Samsung",
+    "description": "12Mp, 128Gb",
+    "price": "950"
+  },
+  {
+    "id": 3,
+    "image": "",
+    "title": "Xiaomi",
+    "description": "Top for this price",
+    "price": "800"
+  },
+  {
+    "id": 4,
+    "image": "",
+    "title": "Nokia",
+    "description": "12Mp, 128Gb",
+    "price": "700"
+  },
+  {
+    "id": 5,
+    "image": "",
+    "title": "Honor",
+    "description": "12Mp, 128Gb",
+    "price": "750"
+  },
+  {
+    "id": 6,
+    "image": "",
+    "title": "RealMe",
+    "description": "12Mp, 128Gb",
+    "price": "600"
+  }
+]

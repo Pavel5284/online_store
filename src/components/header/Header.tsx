@@ -1,10 +1,10 @@
 import {useState} from "react";
 import style from './Header.module.css'
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../state/store";
-import {GoodsType} from "../App";
-import {Cart} from "../features/Cart/Cart";
-import { deleteFromCartAC } from "../state/ordersReducer";
+import {AppRootStateType} from "../../state/store";
+import {GoodsType} from "../../App";
+import {Cart} from "../../features/Cart/Cart";
+import { deleteFromCartAC } from "../../state/ordersReducer";
 
 
 
