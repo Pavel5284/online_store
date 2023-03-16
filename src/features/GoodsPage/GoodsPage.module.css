@@ -1,0 +1,30 @@
+import {useSelector} from "react-redux";
+import {AppRootStateType} from "../../state/store";
+import {GoodsType} from "../../App";
+import {GoodsItem} from "./GoodsItem/GoodsItem";
+import React from "react";
+
+
+export const GoodsPage = () => {
+
+    const goods = useSelector<AppRootStateType, GoodsType[]>(state => state.goods)
+
+    return <div>
+        {
+            goods.map(e => {
+                return <div>
+                    <GoodsItem
+                        key={e.id}
+                        id={e.id}
+                        image={e.image}
+                        title={e.title}
+                        description={e.description}
+                        price={e.price}
+                    />
+
+                </div>
+            })
+        }
+
+    </div>
+}

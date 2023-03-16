@@ -1,0 +1,7 @@
+.item__container {
+    max-width: 300px;
+    display: flex;
+}
+.item__image {
+    max-width: inherit;
+}
