@@ -1,4 +1,8 @@
-.wrapper {
+.filter__block{
+    text-align: start;
+}
+.items__block {
     display: flex;
     flex-wrap: wrap;
+    gap: 20px;
 }
