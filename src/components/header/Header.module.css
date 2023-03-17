@@ -1,11 +1,3 @@
-header {
-    position: relative;
-}
-.shop__cart{
-    position: absolute;
-    top: 30px;
-    width: 450px;
-    min-height: 100px;
-    padding: 20px;
-    background-color: darkgrey;
+.totalPrice{
+
 }
