@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {AppRootStateType} from "./state/store";
 import {GoodsPage} from "./features/GoodsPage/GoodsPage";
 import {addToCartAC} from "./state/ordersReducer";
 import {changeCategoryFilterAC} from "./state/goodsReducer";
 import Header from "./components/header/Header";
+import {useAppDispatch} from "./state/hooks";
 
 export type FilterType = 'all' | 'phones' | 'oldPhones'
 
@@ -19,7 +20,7 @@ export type GoodsType = {
 }
 
 function App() {
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     const goods = useSelector<AppRootStateType, GoodsType[]>(state => state.goods.items)
     const orders = useSelector<AppRootStateType, GoodsType[]>(state => state.orders)
@@ -30,7 +31,7 @@ function App() {
         if (test) {
             return alert('exist ')
         }
-        dispatch(addToCartAC(item))
+        dispatch(addToCartAC({item}))
     }
 
 

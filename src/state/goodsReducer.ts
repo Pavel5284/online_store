@@ -6,6 +6,8 @@ import Nokia from '../commons/goodsImage/nokia.jpg'
 import Honor from '../commons/goodsImage/honor.jpg'
 import RealMe from '../commons/goodsImage/realme.jpg'
 
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+
 
 export type GoodsAndFilterType = {
     items: GoodsType[]
@@ -23,15 +25,32 @@ const initialState: GoodsAndFilterType = {
     filter: 'all'
 }
 
-type GoodsReducerType = AddToBasketACType | ChangeCategoryFilterACType
+export const goodsSlice = createSlice ({
+    name:'goods',
+    initialState,
+    reducers:{
+        changeCategoryFilter(state, action: PayloadAction<FilterType>) {
+            state.filter= action.payload
+        }
+    }
+})
 
+export const {
+    changeCategoryFilter: changeCategoryFilterAC,
+} = goodsSlice.actions
+
+export const goodsReducer = goodsSlice.reducer
+
+//type GoodsReducerType = AddToBasketACType | ChangeCategoryFilterACType
+
+/*
 export const goodsReducer = (state = initialState, action: GoodsReducerType): GoodsAndFilterType => {
     switch (action.type) {
         case "ADD-TO-CART": {
             return state
         }
         case "CHANGE-CATEGORY-FILTER": {
-            /*    return state.filter(el => el.category === action.payload.category)*/
+            /!*    return state.filter(el => el.category === action.payload.category)*!/
             return {...state, filter: action.payload}
         }
         default:
@@ -55,4 +74,4 @@ export const changeCategoryFilterAC = (category: FilterType) => {
         type: 'CHANGE-CATEGORY-FILTER',
         payload: category
     } as const
-}
+}*/

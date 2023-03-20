@@ -27,13 +27,13 @@ test('correct good should be added in cart', () => {
         category: 'all'
     }
 
-    const endState = ordersReducer(startState, addToCartAC(newOrder))
+    const endState = ordersReducer(startState, addToCartAC({item: newOrder}))
 
-    expect(endState.length).toBe(1)
+    expect(endState.length).toBe(7)
     expect(endState[0].title).toBe('neworderitem')
 })
 test('correct good should be deleted from cart', () => {
-    const endState = ordersReducer(startState, deleteFromCartAC(1))
+    const endState = ordersReducer(startState, deleteFromCartAC({id:1}))
 
     expect(endState.length).toBe(5)
     expect(endState[0].id).toBe(2)

@@ -13,14 +13,14 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../state/store";
 import {GoodsType} from "../../App";
 import {deleteFromCartAC} from "../../state/ordersReducer";
 import {Cart} from "../../features/Cart/Cart";
 import style from "../header/Header.module.css";
 import {Fade} from "@mui/material";
 import Paper from "@mui/material/Paper/Paper";
+import {AccountCircle} from '@mui/icons-material';
+import {useAppDispatch, useAppSelector} from "../../state/hooks";
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -64,12 +64,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function Header() {
 
-    const dispatch = useDispatch()
-    const orders = useSelector<AppRootStateType, GoodsType[]>(state => state.orders)
+    const dispatch = useAppDispatch()
+    const orders = useAppSelector<GoodsType[]>(state => state.orders)
     let [cartOpen, setCartOpen] = useState<boolean>(false)
 
+
+
     const deleteFromCartHandler = (id: number) => {
-        dispatch(deleteFromCartAC(id))
+        dispatch(deleteFromCartAC({id}))
     }
 
     const showOrders = () => {
@@ -93,6 +95,10 @@ export default function Header() {
 
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+
+    const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
 
     const isMenuOpen = Boolean(anchorEl);
 
@@ -177,7 +183,7 @@ export default function Header() {
 
                         </Fade>
 
-                        {/*<IconButton
+                        <IconButton
                             size="large"
                             edge="end"
                             aria-label="account of current user"
@@ -187,7 +193,7 @@ export default function Header() {
                             color="inherit"
                         >
                             <AccountCircle />
-                        </IconButton>*/}
+                        </IconButton>
                     </Box>
                 </Toolbar>
             </AppBar>
